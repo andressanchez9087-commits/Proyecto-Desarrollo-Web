@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Cafés - Tío Beto Café</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <img src="img/logo.png" class="logo">
+    <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Cafés</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<section class="titulo">
+    <h2>Nuestros Cafés</h2>
+</section>
+
+<section class="grid-cafes" id="cafes">
+
+    <article class="card">
+        <img src="img/cafe1.jpg" onclick="verIngredientes('cafe1')">
+        <h3>Ristretto</h3>
+        <p>Café muy concentrado y aromático.</p>
+        <span>$2.00</span>
+    </article>
+
+    <article class="card">
+        <img src="img/cafe2.jpg" onclick="verIngredientes('cafe2')">
+        <h3>Caramel Latte</h3>
+        <p>Mezcla suave con leche y toque de caramelo.</p>
+        <span>$3.50</span>
+    </article>
+
+    <article class="card">
+        <img src="img/cafe3.jpg" onclick="verIngredientes('cafe3')">
+        <h3>Cortado</h3>
+        <p>Espresso equilibrado con un poco de leche caliente.</p>
+        <span>$2.50</span>
+    </article>
+
+    <article class="card">
+        <img src="img/cafe4.jpg" onclick="verIngredientes('cafe4')">
+        <h3>Espresso</h3>
+        <p>Café intenso, clásico y directo.</p>
+        <span>$2.00</span>
+    </article>
+
+    <article class="card">
+        <img src="img/cafe5.jpg" onclick="verIngredientes('cafe5')">
+        <h3>Americano</h3>
+        <p>Espresso suave con agua caliente.</p>
+        <span>$2.25</span>
+    </article>
+
+    <article class="card">
+        <img src="img/cafe6.jpg" onclick="verIngredientes('cafe6')">
+        <h3>Affogato</h3>
+        <p>Helado de vainilla cubierto con espresso caliente.</p>
+        <span>$4.00</span>
+    </article>
+
+    <article class="card">
+        <img src="img/cafe7.jpg" onclick="verIngredientes('cafe7')">
+        <h3>Irish Coffee</h3>
+        <p>Café fuerte con whisky y crema batida.</p>
+        <span>$5.00</span>
+    </article>
+
+    <article class="card">
+        <img src="img/cafe8.jpg" onclick="verIngredientes('cafe8')">
+        <h3>Mocaccino</h3>
+        <p>Mezcla perfecta de café, leche y chocolate.</p>
+        <span>$3.50</span>
+    </article>
+
+    <article class="card">
+        <img src="img/cafe9.jpg" onclick="verIngredientes('cafe9')">
+        <h3>Latte</h3>
+        <p>Suave y cremoso con gran cantidad de leche espumada.</p>
+        <span>$3.00</span>
+    </article>
+
+</section>
+
+<!-- ================================
+     MODAL PARA INGREDIENTES
+================================ -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <h3 id="tituloCafe"></h3>
+        <p id="ingredientesCafe"></p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 Tío Beto Café</p>
+</footer>
+
+<!-- ================================
+     SCRIPT PARA MOSTRAR INGREDIENTES
+================================ -->
+<script>
+    const ingredientes = {
+        cafe1: { 
+            nombre: "Ristretto", 
+            ingredientes: ["Café molido fino", "Agua caliente concentrada"] 
+        },
+        cafe2: { 
+            nombre: "Caramel Latte", 
+            ingredientes: ["Espresso", "Leche espumada", "Jarabe de caramelo"] 
+        },
+        cafe3: { 
+            nombre: "Cortado", 
+            ingredientes: ["Espresso", "Un toque de leche caliente"] 
+        },
+        cafe4: { 
+            nombre: "Espresso", 
+            ingredientes: ["Café molido fino", "Agua caliente"] 
+        },
+        cafe5: { 
+            nombre: "Americano", 
+            ingredientes: ["Espresso", "Agua caliente"] 
+        },
+        cafe6: { 
+            nombre: "Affogato", 
+            ingredientes: ["Helado de vainilla", "Espresso caliente"] 
+        },
+        cafe7: { 
+            nombre: "Irish Coffee", 
+            ingredientes: ["Café negro", "Whisky irlandés", "Azúcar", "Crema batida"] 
+        },
+        cafe8: { 
+            nombre: "Mocaccino", 
+            ingredientes: ["Espresso", "Leche", "Chocolate o cacao"] 
+        },
+        cafe9: { 
+            nombre: "Latte", 
+            ingredientes: ["Espresso", "Leche vaporizada", "Espuma de leche"] 
+        }
+    };
+
+    function verIngredientes(cafeID) {
+        document.getElementById("tituloCafe").textContent = ingredientes[cafeID].nombre;
+
+        // Crear lista en HTML
+        let lista = "<ul>";
+        ingredientes[cafeID].ingredientes.forEach(item => {
+            lista += `<li>${item}</li>`;
+        });
+        lista += "</ul>";
+
+        document.getElementById("ingredientesCafe").innerHTML = lista;
+        document.getElementById("modal").style.display = "flex";
+    }
+
+    function cerrarModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+</script>
+
+
+</body>
+</html>

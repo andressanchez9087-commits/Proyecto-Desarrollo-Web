@@ -1,0 +1,275 @@
+/* Reinicia márgenes y define tipografía base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ---------------- HEADER ---------------- */
+header {
+    width: 100%;
+    background: #4b2e19; /* Color café del header */
+    padding: 10px 0;
+    position: fixed; /* Header fijo */
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;  /* Menú centrado */
+    align-items: center;
+    z-index: 1000; /* Encima del resto */
+}
+
+/* Logo del header ubicado a la izquierda */
+.logo {
+    width: 55px;
+    position: absolute;
+    left: 20px;
+}
+
+/* Contenedor del menú */
+.menu {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilo de los enlaces del menú */
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* Efecto hover para el menú */
+.menu a:hover {
+    background-color: #6e3f24;
+    color: #ffd9b3;
+}
+
+
+/* ---------------- CARDS ---------------- */
+.grid-cafes {
+    display: grid; /* Sistema de grilla */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 25px;
+    padding: 20px;
+}
+
+/* Imagen de cada tarjeta */
+.grid-cafes img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Tarjeta */
+.card {
+    background: #fff3e6;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Imagen dentro de la tarjeta */
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+/* ---------------- FORMULARIO ---------------- */
+.formulario {
+    max-width: 420px;
+    margin: 150px auto; /* Centrado */
+    background: #4b2e19;
+    padding: 35px 60px 35px 35px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    color: #fff;
+    text-align: center;
+}
+
+/* Inputs y textarea */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 5px solid #ccb09c;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+/* Botón del formulario */
+button {
+    width: 108%;
+    padding: 12px;
+    background-color: #C47F39;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 660;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #a93226;
+    transform: translateY(-2px);
+}
+
+/* Mensaje debajo del formulario */
+#mensaje {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* ---------------- FOOTER ---------------- */
+footer {
+    background: #5a3d2b;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .grid-cafes {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-cafes {
+        grid-template-columns: 1fr; /* 1 columna */
+    }
+}
+
+/* Elimina decoraciones de los links */
+.menu a,
+.menu a:hover,
+.menu a:focus,
+.menu a:active {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Etiquetas del formulario alineadas a la izquierda */
+label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #ffd9b3;
+}
+
+
+/* ---------------- SECCIÓN HERO ---------------- */
+.hero {
+    background-image: url('../img/fondo-inicio.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px; /* Para que no se tape con el header */
+}
+
+/* Tarjeta dentro del hero */
+.hero-card {
+    background: rgba(255, 255, 255, 0.90);
+    padding: 40px 60px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Imagen del hero */
+.hero-card .card-img {
+    width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+/* Título del hero */
+.hero-card h1 {
+    font-size: 40px;
+    color: #5a3a22;
+}
+
+/* Texto del hero */
+.hero-card p {
+    font-size: 20px;
+    color: #8b5e34;
+}
+
+/* Botón del hero */
+.btn-hero {
+    padding: 12px 28px;
+    background: #5a3d2b;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-hero:hover {
+    background: #6e4c34;
+}
+
+
+/* ---------------- MODAL DE INGREDIENTES ---------------- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #fdf3e7;
+    padding: 30px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 420px;
+    color: #4a2e1f;
+    border: 3px solid #d7b18a;
+}
+
+.modal-content h3 {
+    text-align: center;
+    font-size: 26px;
+}
+
+.modal-content li {
+    font-size: 18px;
+}
+
+.cerrar {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}
